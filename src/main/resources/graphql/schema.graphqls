@@ -1,0 +1,32 @@
+type Book{
+    id: ID
+    title: String
+    pages: Int
+    author: String
+    reviews: [Review]
+}
+
+type Review{
+    title: String
+    comments: String
+}
+
+type Query{
+    findAllBooks: [Book]
+    findBookById(id:ID): Book
+    findDeleteId(id:ID): Boolean
+}
+
+input BookInput{
+    title:String
+    pages:Int
+    author:String
+}
+
+type Mutation{
+    createBook(title:String , pages:Int, author:String): Book
+    addBook(book:BookInput):Book
+    findDeleteId(id:ID): Boolean
+    updateBook(id:ID ,book:BookInput): Book
+}
+
